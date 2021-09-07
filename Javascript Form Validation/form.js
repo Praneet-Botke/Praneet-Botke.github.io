@@ -140,7 +140,7 @@ const checkPassword = () => {
 
 const checkConfirmPassword = () => {
     let valid = false;
-    // check confirm password
+    
     const confirmPassword = confirmPasswordEl.value.trim();
     const password = passwordEl.value.trim();
 
@@ -173,36 +173,36 @@ const isBetween = (length, min, max) => length < min || length > max ? false : t
 
 
 const showError = (input, message) => {
-    // get the form-field element
+   
     const formField = input.parentElement;
-    // add the error class
+    
     formField.classList.remove('success');
     formField.classList.add('error');
 
-    // show the error message
+    
     const error = formField.querySelector('small');
     error.textContent = message;
 };
 
 const showSuccess = (input) => {
-    // get the form-field element
+    
     const formField = input.parentElement;
 
-    // remove the error class
+    
     formField.classList.remove('error');
     formField.classList.add('success');
 
-    // hide the error message
+   
     const error = formField.querySelector('small');
     error.textContent = '';
 }
 
 
 form.addEventListener('submit', function(e) {
-    // prevent the form from submitting
+    
     e.preventDefault();
 
-    // validate fields
+    
     let isNameValid = checkName(),
         isRegistrationNoValid = checkRegistrationNo(),
         isDepartmentWithSpecializationValid = checkDepartmentWithSpecialization(),
@@ -217,7 +217,7 @@ form.addEventListener('submit', function(e) {
         isPasswordValid &&
         isConfirmPasswordValid;
 
-    // submit to the server if the form is valid
+   
     if (isFormValid) {
 
     }
@@ -227,11 +227,11 @@ form.addEventListener('submit', function(e) {
 const debounce = (fn, delay = 500) => {
     let timeoutId;
     return (...args) => {
-        // cancel the previous timer
+      
         if (timeoutId) {
             clearTimeout(timeoutId);
         }
-        // setup a new timer
+       
         timeoutId = setTimeout(() => {
             fn.apply(null, args)
         }, delay);
